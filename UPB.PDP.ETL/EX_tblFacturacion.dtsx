@@ -1,0 +1,813 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2025 2:19:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="N00026114"
+  DTS:CreatorName="MEDAULAS\B09S107est"
+  DTS:DTSID="{F5016D6A-7356-4E1C-90C0-86A955263A09}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="EX_tblFacturacion"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{191DFB83-FB7A-4FAB-86EC-5DFF8217470B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[facturaweb.database.windows.net.apolo.bd_user]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{20A960C2-A215-4458-948C-18F6E9F4DFFC}"
+      DTS:ObjectName="facturaweb.database.windows.net.apolo.bd_user">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Project::Facturaweb_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Project::Facturaweb_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::Facturaweb_ServerName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="UserName">@[$Project::Facturaweb_UserName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlaulas.tic.upb;User ID=sa;Initial Catalog=apolo;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Package-{20A960C2-A215-4458-948C-18F6E9F4DFFC}facturaweb.database.windows.net.apolo.bd_user;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABg0OhycT7Um9sSYGxUUXYAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAaHaXSUYwcCoQvToC72zfZYWhdAJhjW22sF7P4U4sndgAAAAAOgAAAAAIAACAAAABsBCO5wvMBxcotxXd+kpI/sLAlWt/73CkZjqWWw0j+XSAAAABtx78jL69A9AgynZAX95Bh7X9Wy6vr0TaYxnmRwdwlAkAAAACEzhxHi5Se3EPOj8ZBF5k+bKhi2rLngQd57ksTAZ7bnycsKu29SJICMh5ESqIQmUkdf4EVn7AUnc77ZultDauu</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlaulas.tic.upb.STG-PDP.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{79964107-D949-495B-A463-C68DB9CF58C1}"
+      DTS:ObjectName="sqlaulas.tic.upb.STG-PDP.sa">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Project::Staging_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Project::Staging_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::Staging_ServerName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="UserName">@[$Project::Staging_UserName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlaulas.tic.upb;User ID=sa;Initial Catalog=STG-PDP;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-EX_ClienteApolo-{79964107-D949-495B-A463-C68DB9CF58C1}sqlaulas.tic.upb.STG-PDP.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABg0OhycT7Um9sSYGxUUXYAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABUF7nJgA6782RuOQwDTEI98iHpX7PpaD53cwSBZTY5VwAAAAAOgAAAAAIAACAAAADL+8yt68VbxOGHTSK474CuhfgrovZ0SjtQK1P7F4TWlyAAAACd/Wy8dq8mDGIidvzbjGBLWdUEZL4h390/Y3R9zR38hUAAAACQKhvsyu8HQTomIkqyRHJQkhNMmLwd9OnOiR+Ql5brdJb8tJu/qR2AUJvtdrM3mwmqyGCcrKBQw9u07ac8Xv+P</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D96908E-2402-46A9-B1D3-F3ADE73654DF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="valorFinal">
+      <DTS:VariableValue
+        DTS:DataType="8">2022-12-31</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C01C00C9-ECFE-480A-8436-D8532D2E6E0F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="valorInicial">
+      <DTS:VariableValue
+        DTS:DataType="8">2022-01-01</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ConsultarDeltas tblFacturacion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B0E9F088-F096-4635-B646-5B63BBFF8DBC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ConsultarDeltas tblFacturacion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79964107-D949-495B-A463-C68DB9CF58C1}"
+          SQLTask:SqlStatementSource="EXEC [dbo].[spConsultarDeltas] 'apolo', 'tblFacturacion'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="valorInicial"
+            SQLTask:DtsVariableName="User::valorInicial" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="valorFinal"
+            SQLTask:DtsVariableName="User::valorFinal" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT tblFacturacion"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{81A6FBF9-D2E2-4D30-ADA1-80A99A0464A2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT tblFacturacion"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT tblFacturacion\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[temptblFacturacion]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT tblFacturacion\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlaulas.tic.upb.STG-PDP.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlaulas.tic.upb.STG-PDP.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pkFactura]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="pkFactura"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pkFactura]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[pkFactura]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[noControl]"
+                      cachedDataType="i4"
+                      cachedName="noControl"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[noControl]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[noControl]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fkCliente]"
+                      cachedDataType="i4"
+                      cachedName="fkCliente"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fkCliente]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fkCliente]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fkMedioPago]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="fkMedioPago"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fkMedioPago]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fkMedioPago]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[fecha]"
+                      cachedDataType="dbDate"
+                      cachedName="fecha"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fecha]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[valor]"
+                      cachedDataType="numeric"
+                      cachedName="valor"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[valor]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[valorIva]"
+                      cachedDataType="numeric"
+                      cachedName="valorIva"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[valorIva]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valorIva]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[valorTotal]"
+                      cachedDataType="numeric"
+                      cachedName="valorTotal"
+                      cachedPrecision="10"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[valorTotal]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valorTotal]" />
+                    <inputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[facturacionElectronica]"
+                      cachedDataType="bool"
+                      cachedName="facturacionElectronica"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facturacionElectronica]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[facturacionElectronica]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pkFactura]"
+                      dataType="wstr"
+                      length="20"
+                      name="pkFactura" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[noControl]"
+                      dataType="i4"
+                      name="noControl" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fkCliente]"
+                      dataType="i4"
+                      name="fkCliente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fkMedioPago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="fkMedioPago" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[fecha]"
+                      dataType="dbDate"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[valor]"
+                      dataType="numeric"
+                      name="valor"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[valorIva]"
+                      dataType="numeric"
+                      name="valorIva"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[valorTotal]"
+                      dataType="numeric"
+                      name="valorTotal"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[facturacionElectronica]"
+                      dataType="bool"
+                      name="facturacionElectronica" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT tblFacturacion\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT tblFacturacion\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[recaudo].[tblFacturacion]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT tblFacturacion\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[facturaweb.database.windows.net.apolo.bd_user]"
+                  connectionManagerRefId="Package.ConnectionManagers[facturaweb.database.windows.net.apolo.bd_user]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[pkFactura]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pkFactura]"
+                      length="20"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[pkFactura]"
+                      name="pkFactura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[noControl]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[noControl]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[noControl]"
+                      name="noControl"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fkCliente]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fkCliente]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fkCliente]"
+                      name="fkCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fkMedioPago]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fkMedioPago]"
+                      length="3"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fkMedioPago]"
+                      name="fkMedioPago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fecha]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fecha]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[fecha]"
+                      name="fecha"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valor]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valor]"
+                      name="valor"
+                      precision="10"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valorIva]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valorIva]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valorIva]"
+                      name="valorIva"
+                      precision="10"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valorTotal]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valorTotal]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[valorTotal]"
+                      name="valorTotal"
+                      precision="10"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[facturacionElectronica]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[facturacionElectronica]"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].Columns[facturacionElectronica]"
+                      name="facturacionElectronica"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pkFactura]"
+                      dataType="wstr"
+                      length="20"
+                      name="pkFactura" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[noControl]"
+                      dataType="i4"
+                      name="noControl" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fkCliente]"
+                      dataType="i4"
+                      name="fkCliente" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fkMedioPago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="fkMedioPago" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[fecha]"
+                      dataType="dbDate"
+                      name="fecha" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valor]"
+                      dataType="numeric"
+                      name="valor"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valorIva]"
+                      dataType="numeric"
+                      name="valorIva"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[valorTotal]"
+                      dataType="numeric"
+                      name="valorTotal"
+                      precision="10"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[facturacionElectronica]"
+                      dataType="bool"
+                      name="facturacionElectronica" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pkFactura]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pkFactura]"
+                      name="pkFactura" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[noControl]"
+                      dataType="i4"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[noControl]"
+                      name="noControl" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fkCliente]"
+                      dataType="i4"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fkCliente]"
+                      name="fkCliente" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fkMedioPago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fkMedioPago]"
+                      name="fkMedioPago" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fecha]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[fecha]"
+                      name="fecha" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valor]"
+                      dataType="numeric"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valor]"
+                      name="valor"
+                      precision="10"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valorIva]"
+                      dataType="numeric"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valorIva]"
+                      name="valorIva"
+                      precision="10"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valorTotal]"
+                      dataType="numeric"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[valorTotal]"
+                      name="valorTotal"
+                      precision="10"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[facturacionElectronica]"
+                      dataType="bool"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[facturacionElectronica]"
+                      name="facturacionElectronica" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT tblFacturacion.Paths[OLE DB Source Output]"
+              endId="Package\DFT tblFacturacion\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT tblFacturacion\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncar temptblFacturacion"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{B6F6E61D-8556-4CEC-BE1E-0BC4920AAA70}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncar temptblFacturacion"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79964107-D949-495B-A463-C68DB9CF58C1}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE temptblFacturacion" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{4C028378-FA18-41A4-B1C0-534483566851}"
+      DTS:From="Package\Truncar temptblFacturacion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\ConsultarDeltas tblFacturacion" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D9174658-0062-4351-8B0E-99995AAC5058}"
+      DTS:From="Package\ConsultarDeltas tblFacturacion"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\DFT tblFacturacion" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="222,42"
+          Id="Package\ConsultarDeltas tblFacturacion"
+          TopLeft="176,197" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DFT tblFacturacion"
+          TopLeft="202,296" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Truncar temptblFacturacion"
+          TopLeft="193,93" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="297.5,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,62"
+              Start="0,0"
+              End="-10.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-6.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,31"
+                    Point2="-10.5,31"
+                    Point3="-10.5,35" />
+                  <mssgle:LineSegment
+                    End="-10.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="286.25,239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT tblFacturacion">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT tblFacturacion\OLE DB Source"
+          TopLeft="327,68" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT tblFacturacion\OLE DB Destination"
+          TopLeft="319,165" />
+        <EdgeLayout
+          Id="Package\DFT tblFacturacion.Paths[OLE DB Source Output]"
+          TopLeft="403.25,110">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT tblFacturacion\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT tblFacturacion\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,515 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/26/2025 11:14:36 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="N00026088"
+  DTS:CreatorName="MEDAULAS\B09S107est"
+  DTS:DTSID="{FE44E0B4-B579-42F3-BC16-D952D9603138}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{96D581E3-6697-4FED-8109-D94B412B1D1E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[mascotas]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6E6B689E-785F-4815-B94B-EDE34E846FAB}"
+      DTS:ObjectName="mascotas">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Project::BDMascotas_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Project::BDMascotas_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::BDMascotas_ServerName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="UserName">@[$Project::BDMascotas_UserName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlaulas.tic.upb;User ID=sa;Initial Catalog=BDMascotas;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-EX_ControlPeso-{6E6B689E-785F-4815-B94B-EDE34E846FAB}sqlaulas.tic.upb.BDMascotas.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABg0OhycT7Um9sSYGxUUXYAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADb6zos8TrjIBLHmWViZAHRMzYp/pnJrjev6Uj7HRpg5AAAAAAOgAAAAAIAACAAAABXESFNTKlaqlsFp50CVrJs6G6DH16/VC3swTQWclKQRSAAAACnaF8ppz6xHP1/eEz7CJHs/UTeCeIoXv/nZw2/7snJJkAAAADKenrwem7wBgATf/nsBEeq6gygvMpC+2Rsrr0Dftu3JzOlQRHwyMZm39bB+ZTaFFlvdiZ+vkTK9lw0Sk0KidKq</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[sqlaulas.tic.upb.STG-PDP.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{79964107-D949-495B-A463-C68DB9CF58C1}"
+      DTS:ObjectName="sqlaulas.tic.upb.STG-PDP.sa">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Project::Staging_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="Password">@[$Project::Staging_Password]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Project::Staging_ServerName]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="UserName">@[$Project::Staging_UserName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=sqlaulas.tic.upb;User ID=sa;Initial Catalog=STG-PDP;Provider=SQLNCLI11.1;Persist Security Info=True;Application Name=SSIS-EX_ClienteApolo-{79964107-D949-495B-A463-C68DB9CF58C1}sqlaulas.tic.upb.STG-PDP.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABg0OhycT7Um9sSYGxUUXYAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADEvVCtbC9uP/12xoMtUsBpPK3eISa+O5eNpBib7G6EzwAAAAAOgAAAAAIAACAAAAAWqEI2Dj/QlWhYsY6/jjQDkik6zlkZECeckgd30CB01yAAAADRW+thPtMvawoPxv1cISR2Ywg1+d3Hd/hJaJQCjvPAzEAAAAASRywEQnt80gvZ7exG57bJK7NSp+iRv0MXR1vhb8GmrTbsvKPXprp6UDWhZqCpMMgIftJcBubD5JlHDC4GCRBi</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT tempRaza"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{124E1BCE-6909-45F8-8E8C-F17B1531587E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT tempRaza"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT tempRaza\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[tempRaza]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT tempRaza\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[sqlaulas.tic.upb.STG-PDP.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[sqlaulas.tic.upb.STG-PDP.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IdRaza]"
+                      cachedDataType="i8"
+                      cachedName="IdRaza"
+                      externalMetadataColumnId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdRaza]"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdRaza]" />
+                    <inputColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Raza]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Raza"
+                      externalMetadataColumnId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Raza]"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Raza]" />
+                    <inputColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IdEspecie]"
+                      cachedDataType="i4"
+                      cachedName="IdEspecie"
+                      externalMetadataColumnId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdEspecie]"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdEspecie]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdRaza]"
+                      dataType="i8"
+                      name="IdRaza" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Raza]"
+                      dataType="wstr"
+                      length="255"
+                      name="Raza" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IdEspecie]"
+                      dataType="i4"
+                      name="IdEspecie" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT tempRaza\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT tempRaza\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT tempRaza\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT tempRaza\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Tienda].[Raza]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT tempRaza\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[mascotas]"
+                  connectionManagerRefId="Package.ConnectionManagers[mascotas]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdRaza]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdRaza]"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdRaza]"
+                      name="IdRaza"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Raza]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Raza]"
+                      length="255"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Raza]"
+                      name="Raza"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdEspecie]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdEspecie]"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].Columns[IdEspecie]"
+                      name="IdEspecie"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdRaza]"
+                      dataType="i8"
+                      name="IdRaza" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Raza]"
+                      dataType="wstr"
+                      length="255"
+                      name="Raza" />
+                    <externalMetadataColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IdEspecie]"
+                      dataType="i4"
+                      name="IdEspecie" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdRaza]"
+                      dataType="i8"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdRaza]"
+                      name="IdRaza" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Raza]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Raza]"
+                      name="Raza" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdEspecie]"
+                      dataType="i4"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IdEspecie]"
+                      name="IdEspecie" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT tempRaza.Paths[OLE DB Source Output]"
+              endId="Package\DFT tempRaza\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT tempRaza\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncar tempRaza"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{1CA31E05-F299-4B9C-A7C8-C37D10A58C2E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncar tempRaza"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{79964107-D949-495B-A463-C68DB9CF58C1}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE tempRaza" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{61F20256-A9C3-4B3C-B045-7BD9F2F66C12}"
+      DTS:From="Package\Truncar tempRaza"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\DFT tempRaza" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,42"
+          Id="Package\DFT tempRaza"
+          TopLeft="297.5,222.5" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Truncar tempRaza"
+          TopLeft="289.5,126.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="371.75,168.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT tempRaza">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\DFT tempRaza\OLE DB Source"
+          TopLeft="119,67" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\DFT tempRaza\OLE DB Destination"
+          TopLeft="113,206" />
+        <EdgeLayout
+          Id="Package\DFT tempRaza.Paths[OLE DB Source Output]"
+          TopLeft="196.25,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,97"
+              Start="0,0"
+              End="0,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT tempRaza\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT tempRaza\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

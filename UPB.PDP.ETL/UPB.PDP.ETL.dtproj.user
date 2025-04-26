@@ -8,11 +8,29 @@
         <UseWinAuth>false</UseWinAuth>
         <WinAuthUserName />
         <WinAuthDomain />
-        <UserIDs />
-        <UserPasswords />
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>{20A960C2-A215-4458-948C-18F6E9F4DFFC}</Id>
+            <Name>{20A960C2-A215-4458-948C-18F6E9F4DFFC}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABg0OhycT7Um9sSYGxUUXYAAAAABOAAAAewAyADAAQQA5ADYAMABDADIALQBBADIAMQA1AC0ANAA0ADUAOAAtADkANAA4AEMALQAxADgARgA2AEUAOQBGADQARABGAEYAQwB9AAAAEGYAAAABAAAgAAAAc8EJIhIurlxESZhpezFQciw2QtDT9URW0xKkbSK6vcIAAAAADoAAAAACAAAgAAAABq2BY4/rCRkQVHa+AgaM5KTge4rOf6HDk0w4AgZbff4QAAAAa3jjBUwHU9eK/uMB91gou0AAAACgYhlw1hzgDBodfp75DBGnBloFTNTrvADlcpmaxi0HUEJZoeP5K+whPv+c8Np06uMXrsKXmAEfTP5zfGn9jFAP</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>{20A960C2-A215-4458-948C-18F6E9F4DFFC}</Id>
+            <Name>{20A960C2-A215-4458-948C-18F6E9F4DFFC}</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABg0OhycT7Um9sSYGxUUXYAAAAABOAAAAewAyADAAQQA5ADYAMABDADIALQBBADIAMQA1AC0ANAA0ADUAOAAtADkANAA4AEMALQAxADgARgA2AEUAOQBGADQARABGAEYAQwB9AAAAEGYAAAABAAAgAAAALSIFYNEm4nZGRcfjOD7CnrXKsFsGN2VxUYYK2PfIP34AAAAADoAAAAACAAAgAAAAFzumFjLsa+BfC85eIWyi1q6KzeWDlLTDH6O8guutIBYgAAAAAeuhYpWdi2mK8U2l0IxmOaMwCEIxowJM7T4hpX+j2fJAAAAAAQmsaYl22dz5vmDz6ZbsPXcnqKUv/627qDkvI71WkMmdkPDMyVF3ZNIoZv91xsLJ1OyyOmsuhNg8dXYAHMpNTg==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
         <OfflineMode>false</OfflineMode>
         <ProgressReporting>true</ProgressReporting>
-        <ParameterConfigurationSensitiveValues />
+        <ParameterConfigurationSensitiveValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2025-04-26T01:46:47.1160093Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationSensitiveValues>
       </Options>
     </Configuration>
   </Configurations>
